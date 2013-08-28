@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Qrious::Ui::VERSION
   spec.authors       = ["Kliment Mamykin"]
   spec.email         = ["kmamyk@yahoo.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Qrious specific collection of JS and helpers to use on projects}
+  spec.summary       = %q{Qrious specific collection of JS and helpers to use on projects}
   spec.homepage      = ""
   spec.license       = "MIT"
 
