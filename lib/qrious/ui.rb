@@ -2,9 +2,11 @@ require "qrious/ui/version"
 
 module Qrious
   module Ui
-    # Your code goes here...
-    def self.test_string
-      'Version 1'
+    # All we’re doing here is declaring the gem as an engine.
+    # This will cause rails to add its directories to the load path when the gem is required.
+    module Rails
+      class Engine < ::Rails::Engine
+      end
     end
   end
 end
