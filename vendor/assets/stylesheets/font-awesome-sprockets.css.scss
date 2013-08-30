@@ -1,0 +1,13 @@
+/*!
+ * IMPORTANT!
+ * This replicates the @imports found in vendor/assets/components/font-awesome/scss/font-awesome.scss
+ * The goal is to make paths to the fonts compatible with Sprockets asset pipeline
+ */
+
+@import "font-awesome/scss/variables";
+@import "font-awesome/scss/mixins";
+@import "font-awesome-path-override"; // NOTE THIS!
+@import "font-awesome/scss/core";
+@import "font-awesome/scss/bootstrap";
+@import "font-awesome/scss/extras";
+@import "font-awesome/scss/icons";
