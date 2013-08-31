@@ -9,12 +9,17 @@ module BootstrapHelper
     icon.present? ? content_tag(:i, '', class: ['icon', "icon-#{icon}", spin && "icon-spin"]) : ''.html_safe
   end
 
+  # prepend with the icon
+  def label_with_icon_tag(label, icon, spin: false)
+    [
+        icon_tag(icon, spin: spin),
+        label
+    ].join("\n").html_safe
+  end
+
   def status_label_tag(status, label: 'default', icon: nil, tooltip: '')
     content_tag(:span, class: ['label', "label-#{label.to_s}"], data: {toggle: 'tooltip'}, title: tooltip.to_s) do
-      [
-          icon_tag(icon),
-          status.to_s.titleize
-      ].compact.join("\n").html_safe
+      label_with_icon_tag(status.to_s.titleize, icon)
     end
   end
 
@@ -45,6 +50,31 @@ module BootstrapHelper
         [
             submit_tag(submit_label, class: ['btn', 'btn-primary']),
             link_to("Cancel", :back, class: ['btn'])
+        ].join("\n").html_safe
+      end
+    end
+  end
+
+  def process_button_tag(label, post_path, processing: false, processing_label: label)
+    if processing
+      link_to '#', class: ['btn', 'btn-primary', 'disabled'], disabled: true, data: {no_turbolink: true} do
+        label_with_icon_tag(processing_label, 'refresh', spin: true)
+      end
+    else
+      link_to post_path, method: :post, remote: true, class: ['btn', 'btn-primary'] do
+        label_with_icon_tag(label, 'refresh', spin: false)
+      end
+    end
+  end
+
+  # Alerts
+  def alert_warning_tag(content=nil, &block)
+    content ||= capture(&block) if block_given?
+    content_tag(:div, class: ['alert', 'alert-warning']) do
+      content_tag(:p, class: ['text-center']) do
+        [
+            icon_tag('warning-sign'),
+            content
         ].join("\n").html_safe
       end
     end
