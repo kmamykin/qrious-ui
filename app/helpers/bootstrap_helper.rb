@@ -18,14 +18,35 @@ module BootstrapHelper
     end
   end
 
-  def panel_tag(title: '', &block)
+  def panel_tag(title, &block)
     content_tag :div, class: ['panel', 'panel-default'] do
       [
           content_tag(:div, class: ['panel-heading']) do
-            content_tag(:h3, title, class: ['panel-title'])
+            content_tag(:h3, title || '', class: ['panel-title'])
           end,
-          content_tag(:div, class: ['panel-body'], &block)
+          block_given? ? content_tag(:div, class: ['panel-body'], &block) : content_tag(:div, '', class: ['panel-body'])
       ].join("\n").html_safe
+    end
+  end
+
+  def text_field_group_tag (object, field, value, label: nil)
+    label ||= field.to_s.titleize
+    content_tag(:div, class: ['form-group']) do
+      [
+          label(object, field, label),
+          text_field(object, field, value: value, class: ['form-control'])
+      ].join("\n").html_safe
+    end
+  end
+
+  def submit_or_cancel_group_tag(submit_label)
+    content_tag(:div, class: ['form-group']) do
+      content_tag(:div, class: ['']) do
+        [
+            submit_tag(submit_label, class: ['btn', 'btn-primary']),
+            link_to("Cancel", :back, class: ['btn'])
+        ].join("\n").html_safe
+      end
     end
   end
 end
