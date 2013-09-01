@@ -55,6 +55,24 @@ module BootstrapHelper
     end
   end
 
+  def search_form_tag(path, query_param, label: '', placeholder: '')
+    form_tag path, method: :get, class: 'form-inline', role: 'form' do
+      [
+          content_tag(:div, class: ['form-group']) do
+            [
+                label_tag(query_param, label, class: 'sr-only'),
+                text_field_tag(query_param, params[query_param], class: ['form-control'], placeholder: placeholder)
+            ].join("\n").html_safe
+          end,
+          content_tag(:div, class: ['form-group']) do
+            button_tag(:type => 'submit', :name => nil, :class => ['btn', 'btn-primary']) do
+              label_with_icon_tag("Search", 'search')
+            end
+          end,
+      ].join("\n").html_safe
+    end
+  end
+
   def process_button_tag(label, post_path, processing: false, processing_label: label)
     if processing
       link_to '#', class: ['btn', 'btn-primary', 'disabled'], disabled: true, data: {no_turbolink: true} do
@@ -64,6 +82,14 @@ module BootstrapHelper
       link_to post_path, method: :post, remote: true, class: ['btn', 'btn-primary'] do
         label_with_icon_tag(label, 'refresh', spin: false)
       end
+    end
+  end
+
+  # Table helpers
+
+  def empty_recordset_tag(message="No records found")
+    content_tag(:div, class: 'well') do
+      content_tag(:p, message, class: ['lead', 'text-center'])
     end
   end
 
