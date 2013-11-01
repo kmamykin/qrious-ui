@@ -29,6 +29,7 @@ module Qrious
             #ActionController::Base.send :helper, ::Qrious::Ui::Helpers::Bootstrap
             # All helpers are defined in app/helpers directory to be auto-reloaded on each request in dev env
             ActionController::Base.send :helper, BootstrapHelper
+            ActionController::Base.send :helper, AngularHelper
           end
         end
 
