@@ -3,7 +3,3 @@
 #= require angular/angular
 #= require angular-bootstrap/ui-bootstrap-tpls
 #= require_self
-
-$ ()->
-  # Enable Tooltips
-  $("*[data-toggle='tooltip']").tooltip()
