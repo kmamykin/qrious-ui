@@ -1,7 +1,7 @@
 #= require spin.js/dist/spin
 #= require jquery/jquery
-#= require bootstrap/dist/js/bootstrap
 #= require angular/angular
+#= require angular-bootstrap/ui-bootstrap-tpls
 #= require_self
 
 $ ()->
