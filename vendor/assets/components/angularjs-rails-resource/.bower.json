@@ -1,0 +1,24 @@
+{
+  "name": "angularjs-rails-resource",
+  "version": "1.0.0-pre.1",
+  "main": "angularjs-rails-resource.js",
+  "description": "A resource factory inspired by $resource from AngularJS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FineLinePrototyping/dist-angularjs-rails-resource.git"
+  },
+  "dependencies": {
+    "angular": "*"
+  },
+  "homepage": "https://github.com/FineLinePrototyping/dist-angularjs-rails-resource",
+  "_release": "1.0.0-pre.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0-pre.1",
+    "commit": "243daa82c7f9bc73ba5cd719503b9d7f4fc429c2"
+  },
+  "_source": "git://github.com/FineLinePrototyping/dist-angularjs-rails-resource.git",
+  "_target": "v1.0.0-pre.1",
+  "_originalSource": "angularjs-rails-resource",
+  "_direct": true
+}
