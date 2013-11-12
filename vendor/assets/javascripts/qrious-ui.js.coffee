@@ -5,4 +5,5 @@
 #= require angular-bootstrap/ui-bootstrap-tpls
 #= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module
 #= require angular-file-upload/angular-file-upload
+#= require angularjs-rails-resource/angularjs-rails-resource.js
 #= require_self
