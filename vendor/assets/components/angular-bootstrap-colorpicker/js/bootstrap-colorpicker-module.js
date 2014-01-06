@@ -83,7 +83,7 @@ angular.module('colorpicker.module', [])
           }
         }
       ]
-    }
+    };
   })
   .factory('Color', ['helper', function (helper) {
     return {
@@ -201,9 +201,9 @@ angular.module('colorpicker.module', [])
 
       toHex: function (h, s, b, a) {
         var rgb = this.toRGB(h, s, b, a);
-        return '#' + ((1 << 24) | (parseInt(rgb.r) << 16) | (parseInt(rgb.g) << 8) | parseInt(rgb.b)).toString(16).substr(1);
+        return '#' + ((1 << 24) | (parseInt(rgb.r, 10) << 16) | (parseInt(rgb.g, 10) << 8) | parseInt(rgb.b, 10)).toString(16).substr(1);
       }
-    }
+    };
   }])
   .directive('colorpicker', ['$document', '$compile', 'Color', 'helper', function ($document, $compile, Color, helper) {
     return {
@@ -232,7 +232,8 @@ angular.module('colorpicker.module', [])
 
         var thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex';
         var position = attrs.colorpickerPosition ? attrs.colorpickerPosition : 'bottom';
-
+        var fixedPosition = attrs.colorpickerFixedPosition ? attrs.colorpickerFixedPosition : false;
+        var target = fixedPosition && attrs.colorpickerParent ? elem.parent() : angular.element(document.body);
 
         $compile(colorpickerTemplate)($scope);
 
@@ -246,9 +247,13 @@ angular.module('colorpicker.module', [])
           pickerColorAlpha.css = colorpickerTemplate.find('li')[2].style;
         }
 
+        if (fixedPosition) {
+          colorpickerTemplate.addClass('colorpicker-fixed-position');
+        }
+
         colorpickerTemplate.addClass('colorpicker-position-' + position);
 
-        angular.element(document.body).append(colorpickerTemplate);
+        target.append(colorpickerTemplate);
 
         if(ngModel) {
           ngModel.$render = function () {
@@ -315,6 +320,10 @@ angular.module('colorpicker.module', [])
           slider.knob = zone.children[0].style;
           slider.left = event.pageX - helper.getOffset(zone).left;
           slider.top = event.pageY - helper.getOffset(zone).top;
+          if (fixedPosition) {
+            slider.left -= window.pageXOffset;
+            slider.top -= window.pageYOffset;
+          }
           pointer = {
             left: event.pageX,
             top: event.pageY
@@ -383,22 +392,22 @@ angular.module('colorpicker.module', [])
             positionValue =  {
               'top': positionOffset.top - 147,
               'left': positionOffset.left
-            }
+            };
           } else if (position === 'right') {
             positionValue = {
               'top': positionOffset.top,
               'left': positionOffset.left + 126
-            }
+            };
           } else if (position === 'bottom') {
             positionValue = {
               'top': positionOffset.top + elem[0].offsetHeight + 2,
               'left': positionOffset.left
-            }
+            };
           } else if (position === 'left') {
             positionValue = {
               'top': positionOffset.top,
               'left': positionOffset.left - 150
-            }
+            };
           }
           return {
             'top': positionValue.top + 'px',
