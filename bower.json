@@ -18,8 +18,8 @@
     "tests"
   ],
   "dependencies": {
+    "angular": "~1.2.0",
     "angular-bootstrap-colorpicker": "~3.0.0",
-    "angular-resource": "~1.2.0",
     "angular-bootstrap": "~0.6.0",
     "angular-file-upload": "~0.2.7",
     "angularjs-rails-resource": "~v1.0.0-pre.1",
