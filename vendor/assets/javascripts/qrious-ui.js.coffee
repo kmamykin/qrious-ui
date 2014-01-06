@@ -1,5 +1,5 @@
 #= require es5-shim/es5-shim.js
-#= require spin.js/dist/spin
+#= require spin.js/spin
 #= require jquery/jquery
 #= require angular/angular
 #= require angular-bootstrap/ui-bootstrap-tpls
