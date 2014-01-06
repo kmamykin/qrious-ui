@@ -2,6 +2,7 @@
 #= require spin.js/spin
 #= require jquery/jquery
 #= require angular/angular
+#= require angular-resource/angular-resource.js
 #= require angular-bootstrap/ui-bootstrap-tpls
 #= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module
 #= require angular-file-upload/angular-file-upload
