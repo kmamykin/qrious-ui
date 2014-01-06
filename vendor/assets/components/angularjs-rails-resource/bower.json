@@ -1,6 +1,6 @@
 {
   "name": "angularjs-rails-resource",
-  "version": "1.0.0-pre.1",
+  "version": "1.0.0-pre.4",
   "main": "angularjs-rails-resource.js",
   "description": "A resource factory inspired by $resource from AngularJS",
   "repository": {
@@ -9,5 +9,20 @@
   },
   "dependencies": {
     "angular": "*"
-  }
+  },
+  "ignore": [
+    "node_modules",
+    "Gemfile",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "package.json",
+    "Rakefile",
+    "angularjs-rails-resource.gemspec",
+    "test",
+    "vendor",
+    "lib",
+    "*.zip",
+    ".travis.yml",
+    ".gitignore"
+  ]
 }
