@@ -7,4 +7,6 @@
 #= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module
 #= require angular-file-upload/angular-file-upload
 #= require angularjs-rails-resource/angularjs-rails-resource.js
+#= require select2/select2
+#= require angular-ui-select2/src/select2
 #= require_self
