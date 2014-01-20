@@ -23,7 +23,7 @@
     "angular-resource": "1.2.8",
     "angular-bootstrap-colorpicker": "~3.0.0",
     "angular-bootstrap": "~0.10.0",
-    "angular-file-upload": "~0.2.7",
+    "angular-file-upload": "~0.3.0",
     "angularjs-rails-resource": "~v1.0.0-pre.1",
     "angular-ui-select2": "~0.0.5",
     "bootstrap": "git://github.com/twbs/bootstrap.git#~3.0.0",
